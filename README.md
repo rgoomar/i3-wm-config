@@ -12,6 +12,8 @@ It will always open gnome-sound-applet and nm-applet for volume control and netw
 Install i3 v4.3  
 If using Ubuntu or Debian, don't use the one in the aptitude package manager (as of 10-24-2012).  
 Follow the instructions on http://i3wm.org/docs/repositories.html  
+
+`cd ~/.config`  
 `git clone git@github.com:rgoomar/i3-wm-config.git i3`
 
 # Keyboard Shortcuts
