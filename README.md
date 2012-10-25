@@ -1,5 +1,5 @@
-i3-wm-config by rgoomar
-=======================
+# i3-wm-config by rgoomar
+
 
 This is my configuration for the i3 window manager.
 
@@ -8,24 +8,23 @@ It has support for multi-monitor configurations and shows small examples of how 
 Uses Gnome-Terminal as the terminal.
 It will always open gnome-sound-applet and nm-applet for volume control and network control. 
 
-Keyboard Shortcuts
-===================
+# Keyboard Shortcuts
 
 Mod Key: SUPER key (Mod4)... typically Windows key
 
-=== i3 keys ===
+## i3 keys
 Mod + Shift + q = Reload i3 configuration file
 Mod + Shift + r = Restart i3
 Mod + Shift + e = Exit i3
 Alt + Control + l = Lock screen with background
 
-=== Applications ===
+## Applications
 Mod + Enter = Gnome Terminal
 Mod + d = Run dmenu
 Mod + Shift + h = Heroes of Newerth
 Mod + Shift + f = Finch
 
-=== Window Operations ===
+## Window Operations
 Mod + Shift + c = Kill current window
 Mod + f = Make current window fullscreen
 Mod + Shift + space = Make window floating
@@ -43,7 +42,7 @@ Mod + shift + 0 = Move window to workspace 10
 
 Mod + r = Resize window
 
-=== Navigation ===
+## Navigation
 Mod + j = Focus window to the left
 Mod + k = Focus window down
 Mod + l = Focus window up
@@ -61,7 +60,7 @@ Mod + 8 = Switch to workspace 8
 Mod + 9 = Switch to workspace 9
 Mod + 0 = Switch to workspace 10
 
-=== Layouts ===
+## Layouts
 Mod + h = Split horizontal layout
 Mod + v = Split vertical layout
 Mod + s = Stacking layout
@@ -69,7 +68,7 @@ Mod + w = Tabbed layout
 Mod + e = Default layout
 Mod + space = Toggle between layouts
 
-=== System Manipulation ===
+## System Manipulation
 Volume Decrease Key (varies on keyboard) / XF86AudioLowerVolume = Lower volume by 5%
 Volume Increase Key (varies on keyboard) / XF86AudioRaiseVolume = Raise volume by 5%
 Volume Mute Key (varies on keyboard) / XF86AudioMute = Mute volume
