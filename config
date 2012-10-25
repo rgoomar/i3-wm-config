@@ -1,0 +1,189 @@
+# i3 config file - rgoomar on GitHub 
+# 
+# Please see http://i3wm.org/docs/userguide.html for a complete reference!
+#
+
+# font for window titles. ISO 10646 = Unicode
+font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+
+# use Mouse+Mod4 to drag floating windows to their wanted position
+floating_modifier Mod4
+
+# Force Xinerama for multi-monitor support (nvidia cards)
+# Not always needed, but at times, it is. Mostly with older
+# versions of nvidia drivers / cards.
+
+#force_xinerama yes
+
+# start a terminal
+bindsym Mod4+Return exec gnome-terminal
+
+# kill focused window
+bindsym Mod4+Shift+c kill
+
+# start dmenu (a program launcher)
+bindsym Mod4+d exec dmenu_run
+
+# change focus
+bindsym Mod4+j focus left
+bindsym Mod4+k focus down
+bindsym Mod4+l focus up
+bindsym Mod4+semicolon focus right
+
+# alternatively, you can use the cursor keys:
+bindsym Mod4+Left focus left
+bindsym Mod4+Down focus down
+bindsym Mod4+Up focus up
+bindsym Mod4+Right focus right
+
+# move focused window
+bindsym Mod4+Shift+j move left
+bindsym Mod4+Shift+k move down
+bindsym Mod4+Shift+l move up
+bindsym Mod4+Shift+semicolon move right
+
+# alternatively, you can use the cursor keys:
+bindsym Mod4+Shift+Left move left
+bindsym Mod4+Shift+Down move down
+bindsym Mod4+Shift+Up move up
+bindsym Mod4+Shift+Right move right
+
+# split in horizontal orientation
+bindsym Mod4+h split h
+
+# split in vertical orientation
+bindsym Mod4+v split v
+
+# enter fullscreen mode for the focused container
+bindsym Mod4+f fullscreen
+
+# change container layout (stacked, tabbed, default)
+bindsym Mod4+s layout stacking
+bindsym Mod4+w layout tabbed
+bindsym Mod4+e layout default
+bindsym Mod4+space layout toggle all
+
+# toggle tiling / floating
+bindsym Mod4+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym Mod4+t focus mode_toggle
+
+# focus the parent container
+bindsym Mod4+a focus parent
+
+# switch to workspace
+bindsym Mod4+1 workspace 1
+bindsym Mod4+2 workspace 2
+bindsym Mod4+3 workspace 3
+bindsym Mod4+4 workspace 4
+bindsym Mod4+5 workspace 5
+bindsym Mod4+6 workspace 6
+bindsym Mod4+7 workspace 7
+bindsym Mod4+8 workspace 8
+bindsym Mod4+9 workspace 9
+bindsym Mod4+0 workspace 10
+
+# move focused container to workspace
+bindsym Mod4+Shift+1 move workspace 1
+bindsym Mod4+Shift+2 move workspace 2
+bindsym Mod4+Shift+3 move workspace 3
+bindsym Mod4+Shift+4 move workspace 4
+bindsym Mod4+Shift+5 move workspace 5
+bindsym Mod4+Shift+6 move workspace 6
+bindsym Mod4+Shift+7 move workspace 7
+bindsym Mod4+Shift+8 move workspace 8
+bindsym Mod4+Shift+9 move workspace 9
+bindsym Mod4+Shift+0 move workspace 10
+
+
+# reload the configuration file
+bindsym Mod4+Shift+q reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym Mod4+Shift+r restart
+# exit i3 (logs you out of your X session)
+bindsym Mod4+Shift+e exit
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # They resize the border in the direction you pressed, e.g.
+        # when pressing left, the window is resized so that it has
+        # more space on its left
+
+        bindsym j               resize shrink left 10 px or 10 ppt
+        bindsym Shift+j         resize grow   left 10 px or 10 ppt
+
+        bindsym k               resize shrink down 10 px or 10 ppt
+        bindsym Shift+k         resize grow   down 10 px or 10 ppt
+
+        bindsym l               resize shrink up 10 px or 10 ppt
+        bindsym Shift+l         resize grow   up 10 px or 10 ppt
+
+        bindsym semicolon       resize shrink right 10 px or 10 ppt
+        bindsym Shift+semicolon resize grow   right 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left        resize shrink left 10 px or 10 ppt
+        bindsym Shift+Left  resize grow   left 10 px or 10 ppt
+
+        bindsym Down        resize shrink down 10 px or 10 ppt
+        bindsym Shift+Down  resize grow   down 10 px or 10 ppt
+
+        bindsym Up          resize shrink up 10 px or 10 ppt
+        bindsym Shift+Up    resize grow   up 10 px or 10 ppt
+
+        bindsym Right       resize shrink right 10 px or 10 ppt
+        bindsym Shift+Right resize grow   right 10 px or 10 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym Mod4+r mode "resize"
+
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+bar {
+        status_command i3status
+}
+
+# My Keyboard Shortcuts
+bindsym Mod4+Shift+h exec sh HoN/hon.sh
+bindsym Mod4+Shift+f exec gnome-terminal -e finch -t Finch
+bindsym Mod1+Control+l exec i3-msg workspace 10 && i3lock -i /home/rishi/Pictures/Linux.png -d
+
+
+# Audio shortcuts
+bindsym XF86AudioLowerVolume exec /usr/bin/pactl set-sink-volume 0 -- '-5%'
+bindsym XF86AudioRaiseVolume exec /usr/bin/pactl set-sink-volume 0 -- '+5%'
+bindsym XF86AudioMute exec /usr/bin/pactl set-sink-volume 0 0
+
+
+# Auto assign workspaces to monitors (only for multi-monitor configs)
+# If using xinerama, use it as the keyword for monitor
+# otherwise, use LVDS, HDMI-0, etc. (most common ones)
+#workspace 1 output xinerama-0 
+#workspace 2 output xinerama-0
+#workspace 5 output xinerama-0
+#workspace 3 output xinerama-1
+#workspace 6 output xinerama-1
+#workspace 9 output xinerama-1
+
+# Autostart Programs
+#exec thunderbird
+#exec skype
+#exec gnome-terminal -e finch -t Finch
+
+# Make sure we have some graphical applet in case something is wrong
+exec_always gnome-sound-applet
+exec_always nm-applet
+
+# Auto assign certain programs to workspaces
+assign [class="[sS]kype"] 6
+assign [class="Heroes of Newerth"] 5
+assign [class="Thunderbird" instance="Mail"] 2
+assign [class="Gnome-terminal" instance="gnome-terminal" title="Finch"] 9
+assign [class="[Ff]ilezilla"] 3
