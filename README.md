@@ -1,4 +1,4 @@
-# i3-wm-config by rgoomar
+# i3-wm-config by rgoomar for v4.3
 
 
 This is my configuration for the i3 window manager.
@@ -7,6 +7,12 @@ It has support for multi-monitor configurations and shows small examples of how 
 
 Uses Gnome-Terminal as the terminal.
 It will always open gnome-sound-applet and nm-applet for volume control and network control. 
+
+# Installation Instructions
+Install i3 v4.3  
+If using Ubuntu or Debian, don't use the one in the aptitude package manager (as of 10-24-2012).  
+Follow the instructions on http://i3wm.org/docs/repositories.html  
+`git clone git@github.com:rgoomar/i3-wm-config.git i3`
 
 # Keyboard Shortcuts
 
