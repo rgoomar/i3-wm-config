@@ -1,6 +1,12 @@
-# i3 config file - rgoomar on GitHub 
-# 
+# i3 config file (v4)
+#
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
+#
+# This config file uses keycodes (bindsym) and was written for the QWERTY
+# layout.
+#
+# To get a config file with the same key positions, but for your current
+# layout, use the i3-config-wizard
 #
 
 # font for window titles. ISO 10646 = Unicode
@@ -9,14 +15,12 @@ font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 # use Mouse+Mod4 to drag floating windows to their wanted position
 floating_modifier Mod4
 
-# Force Xinerama for multi-monitor support (nvidia cards)
-# Not always needed, but at times, it is. Mostly with older
-# versions of nvidia drivers / cards.
-
+# Force Xinerama for multi-monitor support (nvidia proprietary drivers)
 #force_xinerama yes
 
-# start a terminal
-bindsym Mod4+Return exec gnome-terminal
+### Main Keyboard Shortcuts ##
+# Starts terminal
+bindsym Mod4+Return exec terminal
 
 # kill focused window
 bindsym Mod4+Shift+c kill
@@ -61,6 +65,8 @@ bindsym Mod4+f fullscreen
 bindsym Mod4+s layout stacking
 bindsym Mod4+w layout tabbed
 bindsym Mod4+e layout default
+
+# toggle between layouts
 bindsym Mod4+space layout toggle all
 
 # toggle tiling / floating
@@ -71,6 +77,9 @@ bindsym Mod4+t focus mode_toggle
 
 # focus the parent container
 bindsym Mod4+a focus parent
+
+# focus the child container
+#bindsym Mod4+d focus child
 
 # switch to workspace
 bindsym Mod4+1 workspace 1
@@ -104,7 +113,7 @@ bindsym Mod4+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym Mod4+Shift+e exit
 
-# resize window (you can also use the mouse for that)
+### Resizing windows ###
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
 
@@ -144,46 +153,79 @@ mode "resize" {
 
 bindsym Mod4+r mode "resize"
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
+### i3Bar using Conky to display information ###
 bar {
-        status_command i3status
+        status_command conky -c ./.conkyrc
+		colors {
+			background #6E6E6E
+			statusline #FFFFFF
+			inactive_workspace #1C1C1C #6E6E6E
+			urgent_workspace #1C1C1C #FF0000
+		}
+
 }
 
-# My Keyboard Shortcuts
+### My Keyboard Shortcuts ###
+
+# Heroes of Newerth
 bindsym Mod4+Shift+h exec sh HoN/hon.sh
-bindsym Mod4+Shift+f exec gnome-terminal -e finch -t Finch
-bindsym Mod1+Control+l exec i3-msg workspace 10 && i3lock -i /home/rishi/Pictures/Linux.png -d
 
+# Finch Terminal Messenger
+bindsym Mod4+Shift+f exec terminal -e finch -t Finch
 
-# Audio shortcuts
+# Lock screen
+bindsym Mod1+Control+l exec i3-msg workspace 10 && i3lock -t -d
+
+# Pianobar
+bindsym Mod4+Shift+p exec terminal -e pianobar -t Pianobar
+
+bindsym Mod4+Shift+b exec sh /home/rishi/netbeans-7.2.1/bin/netbeans
+
+# Audio shortcuts 
 bindsym XF86AudioLowerVolume exec /usr/bin/pactl set-sink-volume 0 -- '-5%'
 bindsym XF86AudioRaiseVolume exec /usr/bin/pactl set-sink-volume 0 -- '+5%'
 bindsym XF86AudioMute exec /usr/bin/pactl set-sink-volume 0 0
 
 
-# Auto assign workspaces to monitors (only for multi-monitor configs)
-# If using xinerama, use it as the keyword for monitor
-# otherwise, use LVDS, HDMI-0, etc. (most common ones)
+### Auto assign workspaces to monitors ###
 #workspace 1 output xinerama-0 
 #workspace 2 output xinerama-0
 #workspace 5 output xinerama-0
 #workspace 3 output xinerama-1
 #workspace 6 output xinerama-1
+#workspace 8 output xinerama-1
 #workspace 9 output xinerama-1
 
-# Autostart Programs
+### Autostart Programs ###
+
+# Java fix
+exec wmname LG3D
+
 #exec thunderbird
 #exec skype
-#exec gnome-terminal -e finch -t Finch
+#exec pidgin
+#exec gnome-terminal -e pianobar -t Pianobar
 
-# Make sure we have some graphical applet in case something is wrong
-exec_always gnome-sound-applet
-exec_always nm-applet
+# Sound Tray Applet
+exec gnome-sound-applet
+# Network Tray Applet
+exec nm-applet
 
-# Auto assign certain programs to workspaces
+### Auto assign certain programs to workspaces ###
 assign [class="[sS]kype"] 6
 assign [class="Heroes of Newerth"] 5
 assign [class="Thunderbird" instance="Mail"] 2
-assign [class="Gnome-terminal" instance="gnome-terminal" title="Finch"] 9
+assign [class="terminal" instance="terminal" title="Finch"] 9
 assign [class="[Ff]ilezilla"] 3
+assign [class="terminal" instance="terminal" title="Pianobar"] 8
+assign [class="Spotify" instance="spotify"] 8
+assign [class="[pP]idgin" instance="[pP]idgin"] 9
+
+### Set certain windows to floating ###
+
+# Set the notification to appear as it should instead of a separate tiling window
+for_window [class="Xfce4-notifyd" instance="xfce4-notifyd"] floating enable
+for_window [class="Xfce4-notifyd" instance="xfce4-notifyd"] border none
+for_window [class="java-lang-Thread" instance="sun-awt-X11-XFramePeer" title="Starting NetBeans IDE"] floating enable
+for_window [class="java-lang-Thread" instance="sun-awt-X11-XFramePeer" title="Starting NetBeans IDE"] border none
+

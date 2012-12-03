@@ -5,13 +5,15 @@ This is my configuration for the i3 window manager.
 
 It has support for multi-monitor configurations and shows small examples of how that can work. 
 
-Uses Gnome-Terminal as the terminal.
+Uses Terminal (xfce4 terminal) as the terminal.
 It will always open gnome-sound-applet and nm-applet for volume control and network control. 
 
 # Installation Instructions
 Install i3 v4.3  
 If using Ubuntu or Debian, don't use the one in the aptitude package manager (as of 10-24-2012).  
 Follow the instructions on http://i3wm.org/docs/repositories.html  
+
+If using Arch Linux, install from the pacman package manager
 
 `cd ~/.config`  
 `git clone git@github.com:rgoomar/i3-wm-config.git i3`
@@ -27,10 +29,11 @@ Mod + Shift + e = Exit i3
 Alt + Control + l = Lock screen with background  
 
 ## Applications
-Mod + Enter = Gnome Terminal  
+Mod + Enter = Terminal  
 Mod + d = Run dmenu  
 Mod + Shift + h = Heroes of Newerth  
 Mod + Shift + f = Finch  
+Mod + Shift + b = Netbean IDE
 
 ## Window Operations
 Mod + Shift + c = Kill current window  
@@ -81,3 +84,6 @@ Volume Decrease Key (varies on keyboard) / XF86AudioLowerVolume = Lower volume b
 Volume Increase Key (varies on keyboard) / XF86AudioRaiseVolume = Raise volume by 5%  
 Volume Mute Key (varies on keyboard) / XF86AudioMute = Mute volume  
 
+## Random Infos
+There modifications for notifications using xfce4 notify
+Fixes for the netbeans loading screen.
