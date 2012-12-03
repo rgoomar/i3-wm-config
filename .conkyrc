@@ -34,11 +34,11 @@ cpu_avg_samples 2
 # Stuff after 'TEXT' will be formatted on screen
 TEXT
 
-Gmail: ${execi 60 perl ~/.conky/imap.pl} \
-IIT: ${execi 60 perl ~/.conky/imap2.pl} | \
+Gmail: ${execi 60 perl ./imap.pl} \
+IIT: ${execi 60 perl ./imap2.pl} | \
 CPU: ${cpu}% | \
 RAM: ${mem} / ${memmax} - ${memperc}% | \
 Bat: ${battery_short BAT1} | \
 ${time %a, %B %e %G %T} | \
-${execi 60 /home/rishi/.conky/weather.sh 60532} | \
+${execi 60 ./weather.sh 60532} | \
 Vol: ${exec amixer -c 0 get Master | awk '/\[*%\]/ {print $4}'}
