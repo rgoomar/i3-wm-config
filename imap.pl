@@ -7,8 +7,8 @@ use strict;
 use Mail::IMAPClient;
 use IO::Socket::SSL;
 
-my $username = 'rishig92@gmail.com'; 
-my $password = 'iruleu4life'; 
+my $username = 'gmailemail'; 
+my $password = 'gmailpass'; 
 
 my $socket = IO::Socket::SSL->new(
   PeerAddr => 'imap.gmail.com',
